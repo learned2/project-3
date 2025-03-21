@@ -1,48 +1,48 @@
 body {
     padding: 0;
     margin: 0;
-  }
-  
-  #map,
-  body,
-  html {
+}
+
+#map,
+body,
+html {
     height: 100%;
-  }
-  
-  body {
+}
+
+body {
     background: linear-gradient(to bottom right, #033d8d, #02b8e0); 
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     height: 100%;
-  }
-  
-  #map {
+}
+
+#map {
     height: 100%;
     border-radius: 10px;  
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
-  }
+}
 
-  header {
+header {
     background-color: #ffffff20; 
     padding: 10px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  header h1 {
+}
+
+header h1 {
     color: white;
     font-size: 2.5em;
     font-weight: 600;
-  }
+}
 
-  header h4 {
+header h4 {
     color: white;
     font-size: 1em;
     font-weight: 400;
-  }
+}
 
-  footer {
+footer {
     background-color: #ffffff20; 
     color: white;
     text-align: center;
@@ -50,18 +50,162 @@ body {
     position: fixed;
     width: 100%;
     bottom: 0;
-  }
+}
 
-  label {
+label {
     color: white;
     font-size: 1em;
     font-weight: 600;
     padding: 10px;
     font-family: 'Arial', sans-serif;
-  }
+}
 
-  /* option {
+#dropdown-container {
+    position: absolute;     
+    top: 2%;               
+    left: 5%;             
+    transform: translateX(-10%); 
+    z-index: 1000;         
+    background-color: rgba(216, 19, 176, 0.8); 
+    padding: 10px;          
+    border-radius: 10px;    
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+    font-family: 'Arial', sans-serif;
+    width: 250px;           
+    text-align: center;     
+}
+
+select, input[type="month"], input[type="date"] {
+    width: 100%;           
+    padding: 5px;          
+    font-size: 16px;        
+    border-radius: 5px;    
+    border: 2px solid #3498db;
+    background-color: #fff; 
+    color: #333;            
+    font-family: 'Arial', sans-serif;
+    transition: border-color 0.3s ease; 
+    margin-bottom: 5px;  
+}
+
+/* Hover Effect for Select and Date Inputs */
+select:hover, input[type="month"]:hover, input[type="date"]:hover {
+    border-color: #2980b9;  
+}
+
+/* Focus Effect for Select and Date Inputs */
+select:focus, input[type="month"]:focus, input[type="date"]:focus {
+    outline: none;           
+    border-color: #2ecc71;   
+}
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#map,
+body,
+html {
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(to bottom right, #033d8d, #02b8e0); 
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#map {
+    height: 100%;
+    border-radius: 10px;  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+header {
+    background-color: #ffffff20; 
+    padding: 10px;
     text-align: center;
-  } */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
+header h1 {
+    color: white;
+    font-size: 2.5em;
+    font-weight: 600;
+}
 
+header h4 {
+    color: white;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+footer {
+    background-color: #ffffff20; 
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+#dropdown-container {
+    position: absolute;
+    top: 10%;               /* Adjust the vertical position from the top */
+    left: 10%;              /* Adjust the horizontal position from the left */
+    transform: translateX(-10%);
+    z-index: 1000;
+    background-color: rgba(216, 19, 176, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif;
+    width: 400px;           /* You can adjust the width */
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  /* Label Styling */
+  label {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 2px;
+  }
+  
+  /* Select Dropdown Styling */
+  select,
+  input[type="month"],
+  input[type="date"] {
+    width: 150px;  /* Set a fixed width for the dropdowns */
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #3498db;
+    background-color: #fff;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Hover Effect for Select and Date Inputs */
+  select:hover,
+  input[type="month"]:hover,
+  input[type="date"]:hover {
+    border-color: #2980b9;
+  }
+  
+  /* Focus Effect for Select and Date Inputs */
+  select:focus,
+  input[type="month"]:focus,
+  input[type="date"]:focus {
+    outline: none;
+    border-color: #2ecc71;
+  }

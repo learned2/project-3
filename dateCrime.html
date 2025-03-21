@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>NYC Crime Marker Clusters</title>
     <header>
-      <h1>NYC Crime Cluster Map (Year to Date)</h1> 
+      <h1>NYC Crime Cluster Map</h1> 
       <h4>By: Angely R, Everest L, Jason M, Stan U, and Justin Z</h4>
     </header>
     
@@ -42,7 +42,7 @@
         left: 5%;              /* Center horizontally */
         transform: translateX(-10%); /* Center the box */
         z-index: 1000;          /* Ensure it’s on top of the map */
-        background-color: rgba(216, 19, 176, 1); 
+        background-color: rgba(216, 19, 176, 0.8); 
         padding: 10px;          
         border-radius: 10px;    
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
@@ -90,21 +90,15 @@
 
     <!-- Floating Dropdown Box Above the Map -->
     <div id="dropdown-container">
-        <!-- Dropdown menu for selecting crime type -->
-        <label for="crimeTypeSelect">Select Crime Type:</label>
-        <select id="crimeTypeSelect">
-            <option value="MURDER %26 NON-NEGL. MANSLAUGHTER">Murder & Non-Negligent Manslaughter</option>
-            <option value="ROBBERY">Robbery</option>
-            <option value="BURGLARY">Burglary</option>
-            <option value="GRAND LARCENY OF MOTOR VEHICLE">Auto Theft</option>
-            <option value="ASSAULT">Assault</option>
-        </select>
-    </div>
+        <label for="dateSelect">Select Date:</label>
+        <input type="date" id="dateSelect" />
+      </div>
+      
 
     <div id="map"></div>
 
     <!-- JavaScript -->
-    <script type="text/javascript" src="crime.js"></script>
+    <script type="text/javascript" src="dateCrime.js"></script>
 
     <footer>
       <p>Data sourced from NYC Open Data. Powered by Leaflet.js and D3.js</p>

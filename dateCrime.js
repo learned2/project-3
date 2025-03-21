@@ -12,33 +12,22 @@ let myMap = L.map("map", {
   // Store the base API URL
   let baseURL = "https://data.cityofnewyork.us/resource/5uac-w243.json?";
   
-  // Create a marker cluster group to hold markers
-  let markers = L.markerClusterGroup();
+  // Get the date picker input element
+  const datePicker = document.getElementById('dateSelect');  // Assuming this is the ID of the date input
   
-  // Add the marker cluster group to the map
-  myMap.addLayer(markers);
+  // Function to fetch data when the date is selected
+  function fetchDataWithDate() {
+    // Get the selected date from the date picker
+    const selectedDate = datePicker.value; // Format: YYYY-MM-DD
   
-  // Get the crime type dropdown element
-  const crimeTypeSelect = document.getElementById('crimeTypeSelect');
-  
-  // Function to fetch data with selected crime type
-  function fetchDataWithCrimeType() {
-    // Get the selected crime type from the dropdown
-    const selectedCrimeType = crimeTypeSelect.value; 
-  
-    if (!selectedCrimeType) {
-      alert('Please select a crime type!');
-      return;
-    }
-  
-    // Construct the API URL with the selected crime type (ofns_desc)
-    const url = `${baseURL}ofns_desc=${selectedCrimeType}`;
-  
-    // Clear existing markers from the map
-    markers.clearLayers();
+    // Construct the API URL with the selected date
+    const url = `${baseURL}cmplnt_fr_dt=${selectedDate}T00:00:00.000`;
   
     // Fetch data using d3
     d3.json(url).then(function(response) {
+      // Create a new marker cluster group
+      let markers = L.markerClusterGroup();
+  
       // Loop through the data
       for (let i = 0; i < response.length; i++) {
         // Get the latitude and longitude from the dataset
@@ -57,17 +46,22 @@ let myMap = L.map("map", {
             <strong>Victim Age:</strong> ${response[i].vic_age_group} <br>
             <strong>Suspect Age:</strong> ${response[i].susp_age_group}
           `;
+  
           marker.bindPopup(popupContent);
   
           // Add the marker to the cluster group
           markers.addLayer(marker);
         }
       }
+  
+      // Add the marker cluster group to the map
+      myMap.addLayer(markers);
     });
   }
   
-  // Event listener for the dropdown to fetch data when the user selects a crime type
-  crimeTypeSelect.addEventListener('change', fetchDataWithCrimeType);
+  // Event listener for the date picker to fetch data when the user selects a date
+  datePicker.addEventListener('change', fetchDataWithDate);
   
- 
-  window.onload = fetchDataWithCrimeType;  
+  // Optionally, you could fetch data with the initial date on page load, or after a default date is selected
+  window.onload = fetchDataWithDate;  // Uncomment if you want to fetch data when the page loads
+  
