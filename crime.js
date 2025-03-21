@@ -49,7 +49,6 @@ let myMap = L.map("map", {
         
         marker.bindPopup(popupContent);
           
-  
         // Add the marker to the cluster group
         markers.addLayer(marker);
       }
@@ -57,6 +56,5 @@ let myMap = L.map("map", {
   
     // Add the marker cluster group to the map
     myMap.addLayer(markers);
-    
   
   });

@@ -19,12 +19,12 @@ body {
   
   #map {
     height: 100%;
-    border-radius: 10px;  /* Round corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+    border-radius: 10px;  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
   }
 
   header {
-    background-color: #ffffff20; /* Dark blue color */
+    background-color: #ffffff20; 
     padding: 10px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -43,7 +43,7 @@ body {
   }
 
   footer {
-    background-color: #ffffff20; /* Dark gray-blue */
+    background-color: #ffffff20; 
     color: white;
     text-align: center;
     padding: 10px 0;
@@ -60,18 +60,8 @@ body {
     font-family: 'Arial', sans-serif;
   }
 
-  #popup-message {
-    background-color: #3498db;
-    color: white;
-    padding: 15px 30px;
-    border-radius: 8px;
-    font-size: 18px;
-    font-family: 'Arial', sans-serif;
-    position: absolute;
-    top: 30px;
-    left: 10%;
-    transform: translateX(-50%);
+  /* option {
     text-align: center;
-    z-index: 100;
-    display: block;
-}
+  } */
+
+
