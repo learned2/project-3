@@ -9,3 +9,52 @@ body {
     height: 100%;
   }
   
+  body {
+    background: linear-gradient(to bottom right, #033d8d, #02b8e0); 
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  #map {
+    height: 100%;
+    border-radius: 10px;  /* Round corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+  }
+  header {
+    background-color: #ffffff20; /* Dark blue color */
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    color: white;
+    font-size: 2.5em;
+    font-weight: 600;
+  }
+
+  header h4 {
+    color: white;
+    font-size: 1em;
+    font-weight: 400;
+  }
+
+  footer {
+    background-color: #ffffff20; /* Dark gray-blue */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+
+  label {
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+    padding: 10px;
+    font-family: 'Arial', sans-serif;
+  }
