@@ -1,36 +1,67 @@
 
-// API Key Init
-const queryUrl = 'https://data.cityofnewyork.us/resource/5uac-w243.json'
-const apiKey = 'c3z12vdivvg9e0arr992ux7sj'
+const columnsToKeep = [
+    'cmplnt_fr_dt', 'cmplnt_fr_tm', 'cmplnt_num', 'geocoded_column', 'coordinates',
+    'lat_lon', 'latitude', 'longitude', 'ofns_desc', 'susp_age_group',
+    'susp_race', 'vic_age_group', 'vic_race', 'vic_sex'
+];
 
-// Promise pending
-const dataPromise = d3.json(queryUrl); 
-console.log("Data Promise: ", dataPromise); 
+const apiKey = 'c3z12vdivvg9e0arr992ux7sj';
+const queryUrl = 'https://data.cityofnewyork.us/resource/5uac-w243.json';
+let allData = [];  // This will store all the data from all pages
 
-//Get request from API
-d3.json(queryUrl).then(function(data) { // might have to add "+ API"
-    //console.log(data);
-}); 
+// Function to fetch data with pagination
+async function fetchAllData(url) {
+    let offset = 0;
+    let hasMoreData = true;
 
-// let crimeMap = L.map("map", {
-//     center: [40.7128,-74.0060]
-//     zoom: 10
-// }); 
+    while (hasMoreData) {
+        // Fetch the current page of data
+        const pageUrl = `${url}?$limit=1000&$offset=${offset}`;
+        const response = await fetch(pageUrl, {
+            method: "GET",
+            headers: {
+                "X-App-Token": apiKey,
+            },
+        });
 
-fetch(queryUrl, {
-    method: "GET", 
-    headers: {
-        "X-App-Token": apiKey,
-    }, 
-})
-    .then((response) => response.json())
+        const data = await response.json();
+        if (data.length > 0) {
+            allData = allData.concat(data);  // Accumulate the data
+            offset += 1000;  // Move to the next page
+        } else {
+            hasMoreData = false;  // No more data, stop the loop
+        }
+    }
+
+    return allData;  // Return all accumulated data
+}
+
+fetchAllData(queryUrl)
     .then((data) => {
-    // Filter the data for the year 2024 based on the  cmplt_fr_dt timestamp field
-        const yearData = data.filter(item => {
-        const complaintDate = item.cmplnt_fr_dt;  // 'cmplnt_fr_dt' is the field with the timestamp
-        const date = new Date(complaintDate);  // Convert timestamp to a Date object
-        return date.getFullYear() === 2024;  // Filter by year 2024
-      });
-      console.log(yearData);
+        // Log the raw data to check if it's being fetched correctly
+        console.log("Raw Data: ", data);
+
+        // Filter data for 'ofns_desc' containing "MURDER" and 'cmplnt_fr_dt' from 2024
+        const filteredData = data
+            .filter(item => {
+                // Check if 'ofns_desc' contains "MURDER" (case-insensitive) and 'cmplnt_fr_dt' is in 2024
+                const complaintDate = new Date(item.cmplnt_fr_dt); // Parse the complaint date
+                return item.ofns_desc && item.ofns_desc.toLowerCase().includes("murder") && complaintDate.getFullYear() === 2024;
+            })
+            .map(item => {
+                const filteredItem = {};
+
+                // Keep only the specified columns
+                columnsToKeep.forEach(column => {
+                    if (item[column] !== undefined) {  // Ensure the column exists
+                        filteredItem[column] = item[column];
+                    }
+                });
+
+                return filteredItem;  // Return the modified object with only the specified columns
+            });
+
+        // Log the filtered data to the console
+        console.log("Filtered Data:", filteredData);
     })
-    
+    .catch((error) => console.error('Error fetching data:', error));
