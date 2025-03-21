@@ -22,6 +22,7 @@ body {
     border-radius: 10px;  /* Round corners */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
   }
+
   header {
     background-color: #ffffff20; /* Dark blue color */
     padding: 10px;
@@ -58,3 +59,19 @@ body {
     padding: 10px;
     font-family: 'Arial', sans-serif;
   }
+
+  #popup-message {
+    background-color: #3498db;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif;
+    position: absolute;
+    top: 30px;
+    left: 10%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 100;
+    display: block;
+}
