@@ -2,7 +2,7 @@
 // Creating the map object
 let myMap = L.map("map", {
     center: [40.7, -73.95],  // Centering on NYC
-    zoom: 11
+    zoom: 11.47
   });
   
   // Adding the tile layer
@@ -48,6 +48,15 @@ let myMap = L.map("map", {
         `;
         
         marker.bindPopup(popupContent);
+
+        marker.bindPopup(`
+            <div style="font-size: 14px; line-height: 1.5; padding: 10px;">
+              <strong>Offense Description:</strong> ${response[i].ofns_desc} <br>
+              <strong>Date:</strong> ${response[i].cmplt_fr_dt} <br>
+              <strong>Location:</strong> ${response[i].location_desc}
+            </div>
+          `);
+          
   
         // Add the marker to the cluster group
         markers.addLayer(marker);
@@ -56,5 +65,7 @@ let myMap = L.map("map", {
   
     // Add the marker cluster group to the map
     myMap.addLayer(markers);
+
+    
   
   });
