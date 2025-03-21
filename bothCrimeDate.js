@@ -18,21 +18,18 @@ let myMap = L.map("map", {
   // Add the marker cluster group to the map
   myMap.addLayer(markers);
   
-  // Get the crime type dropdown element
+  // Get the date picker and crime type dropdown elements
+  const datePicker = document.getElementById('dateSelect');
   const crimeTypeSelect = document.getElementById('crimeTypeSelect');
   
-  // Function to fetch data with selected crime type
-  function fetchDataWithCrimeType() {
-    // Get the selected crime type from the dropdown
-    const selectedCrimeType = crimeTypeSelect.value; 
+  // Function to fetch data with both selected date and crime type
+  function fetchDataWithFilters() {
+    // Get the selected date and crime type from the dropdowns
+    const selectedDate = datePicker.value; 
+    const selectedCrimeType = crimeTypeSelect.value;
   
-    if (!selectedCrimeType) {
-      alert('Please select a crime type!');
-      return;
-    }
-  
-    // Construct the API URL with the selected crime type (ofns_desc)
-    const url = `${baseURL}ofns_desc=${selectedCrimeType}`;
+    // Construct the API URL with both filters
+    const url = `${baseURL}cmplnt_fr_dt=${selectedDate}T00:00:00.000&ofns_desc=${selectedCrimeType}`;
   
     // Clear existing markers from the map
     markers.clearLayers();
@@ -66,8 +63,10 @@ let myMap = L.map("map", {
     });
   }
   
-  // Event listener for the dropdown to fetch data when the user selects a crime type
-  crimeTypeSelect.addEventListener('change', fetchDataWithCrimeType);
+  // Event listener for the dropdowns to fetch data when the user selects a date or crime type
+  datePicker.addEventListener('change', fetchDataWithFilters);
+  crimeTypeSelect.addEventListener('change', fetchDataWithFilters);
   
- 
-  window.onload = fetchDataWithCrimeType;  
+  // Optionally, you could fetch data with the initial selections on page load
+  window.onload = fetchDataWithFilters;  // Uncomment if you want to fetch data when the page loads
+  
