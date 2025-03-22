@@ -1,15 +1,14 @@
-// Create the map object
+// Create the map
 let myMap = L.map("map", {
     center: [40.7, -73.95],  // Centering on NYC
     zoom: 11.47
   });
   
-  // Add the tile layer
+  // Tile layer
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(myMap);
   
-  // Store the base API URL
   let baseURL = "https://data.cityofnewyork.us/resource/5uac-w243.json?";
   
   // Create a marker cluster group to hold markers
@@ -22,7 +21,6 @@ let myMap = L.map("map", {
   const datePicker = document.getElementById('dateSelect');
   const crimeTypeSelect = document.getElementById('crimeTypeSelect');
   
-  // Function to fetch data with both selected date and crime type
   function fetchDataWithFilters() {
     // Get the selected date and crime type from the dropdowns
     const selectedDate = datePicker.value; 
@@ -34,11 +32,9 @@ let myMap = L.map("map", {
     // Clear existing markers from the map
     markers.clearLayers();
   
-    // Fetch data using d3
     d3.json(url).then(function(response) {
-      // Loop through the data
+
       for (let i = 0; i < response.length; i++) {
-        // Get the latitude and longitude from the dataset
         let latitude = response[i].latitude;
         let longitude = response[i].longitude;
   
