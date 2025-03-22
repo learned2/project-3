@@ -165,7 +165,7 @@ footer {
   font-family: 'Arial', sans-serif;
   width: auto;           
   display: flex;
-  gap: 10px;
+  gap: 12px;
   justify-content: center;
   align-items: center;
 }
