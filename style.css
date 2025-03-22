@@ -118,7 +118,7 @@ body {
 }
 
 #map {
-    height: 100%;
+    height: 80%;
     border-radius: 10px;  
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
 }
@@ -153,38 +153,35 @@ footer {
 }
 
 #dropdown-container {
-    position: absolute;
-    top: 10%;               /* Adjust the vertical position from the top */
-    left: 10%;              /* Adjust the horizontal position from the left */
-    transform: translateX(-10%);
-    z-index: 1000;
-    background-color: rgba(216, 19, 176, 0.8);
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    font-family: 'Arial', sans-serif;
-    width: 400px;           /* You can adjust the width */
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  
-  /* Label Styling */
-  label {
+  position: absolute;
+  top: 3%;               
+  left: 5%;            
+  transform: translateX(-10%);
+  z-index: 1000;
+  background-color: rgba(216, 19, 176, 0.95);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  font-family: 'Arial', sans-serif;
+  width: auto;           
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+ 
+label {
     font-size: 18px;
     color: white;
     font-weight: bold;
     display: block;
     margin-bottom: 2px;
-  }
+}
   
-  /* Select Dropdown Styling */
-  select,
-  input[type="month"],
-  input[type="date"] {
-    width: 150px;  /* Set a fixed width for the dropdowns */
+select,
+input[type="month"],
+input[type="date"] {
+    width: 200px;  /* Set a fixed width for the dropdowns */
     padding: 5px;
     font-size: 16px;
     border-radius: 5px;
@@ -193,19 +190,17 @@ footer {
     color: #333;
     font-family: 'Arial', sans-serif;
     transition: border-color 0.3s ease;
-  }
+}
   
-  /* Hover Effect for Select and Date Inputs */
-  select:hover,
-  input[type="month"]:hover,
-  input[type="date"]:hover {
+select:hover,
+input[type="month"]:hover,
+input[type="date"]:hover {
     border-color: #2980b9;
-  }
+}
   
-  /* Focus Effect for Select and Date Inputs */
-  select:focus,
-  input[type="month"]:focus,
-  input[type="date"]:focus {
+select:focus,
+input[type="month"]:focus,
+input[type="date"]:focus {
     outline: none;
     border-color: #2ecc71;
   }
