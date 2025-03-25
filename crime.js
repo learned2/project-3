@@ -47,7 +47,10 @@ let myMap = L.map("map", {
           let popupContent = `
             <strong>Offense Description:</strong> ${response[i].ofns_desc} <br>
             <strong>Date:</strong> ${response[i].cmplnt_fr_dt} <br>
+<<<<<<< HEAD
             <strong>Time:</strong> ${response[i].cmplnt_fr_tm} <br>
+=======
+>>>>>>> 8a5b3a0e467f7ccfb6bfdf1276e676097438bd60
             <strong>Victim Age:</strong> ${response[i].vic_age_group} <br>
             <strong>Suspect Age:</strong> ${response[i].susp_age_group}
           `;
