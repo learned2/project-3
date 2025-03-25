@@ -8,44 +8,8 @@ let myMap = L.map("map", {
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(myMap);
-  //const express = require('express');
-// const mysql = require('mysql2');
-// const app = express();
-// const port = 3000;
 
-// // Set up your database connection
-// const db = mysql.createConnection({
-//   host: 'your-database-host',
-//   user: 'your-database-user',
-//   password: 'your-database-password',
-//   database: 'your-database-name'
-// });
 
-// app.get('/fetch-crime-data', (req, res) => {
-//   // Get the query parameters from the URL
-//   const selectedDate = req.query.date;
-//   const selectedCrimeType = req.query.crimeType;
-
-//   // Create the SQL query
-//   let sqlQuery = `SELECT latitude, longitude, ofns_desc, cmplnt_fr_dt, vic_age_group, susp_age_group 
-//                   FROM crime_data 
-//                   WHERE cmplnt_fr_dt LIKE ? AND ofns_desc = ?`;
-
-  // Run the SQL query
-//   db.query(sqlQuery, [`${selectedDate}%`, selectedCrimeType], (err, results) => {
-//     if (err) {
-//       console.error(err);
-//       return res.status(500).send('Server error');
-//     }
-//     res.json(results);
-//   });
-// });
-
-// // Start the server
-// app.listen(port, () => {
-//   console.log(`Server running at http://localhost:${port}`);
-// });
-// //
   let baseURL = "https://data.cityofnewyork.us/resource/5uac-w243.json?";
   
   // Create a marker cluster group to hold markers
