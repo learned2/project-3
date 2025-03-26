@@ -31,6 +31,9 @@ let myMap = L.map("map", {
   
     // Clear existing markers from the map
     markers.clearLayers();
+
+    function formatDate(dateString) {
+      return dateString.split('T')[0];}
   
     d3.json(url).then(function(response) {
 
@@ -42,11 +45,13 @@ let myMap = L.map("map", {
         if (latitude && longitude) {
           // Create a marker for each incident
           let marker = L.marker([latitude, longitude]);
+
+          const formattedDate = formatDate(response[i].cmplnt_fr_dt);
   
           // Add a popup with the details of the incident
           let popupContent = `
             <strong>Offense Description:</strong> ${response[i].ofns_desc} <br>
-            <strong>Date:</strong> ${response[i].cmplnt_fr_dt} <br>
+            <strong>Date:</strong> ${formattedDate} <br>
             <strong>Time:</strong> ${response[i].cmplnt_fr_tm} <br>
             <strong>Victim Age:</strong> ${response[i].vic_age_group} <br>
             <strong>Suspect Age:</strong> ${response[i].susp_age_group}
@@ -64,6 +69,6 @@ let myMap = L.map("map", {
   datePicker.addEventListener('change', fetchDataWithFilters);
   crimeTypeSelect.addEventListener('change', fetchDataWithFilters);
   
-  // Optionally, you could fetch data with the initial selections on page load
-  window.onload = fetchDataWithFilters;  // Uncomment if you want to fetch data when the page loads
+  
+  window.onload = fetchDataWithFilters; 
   
