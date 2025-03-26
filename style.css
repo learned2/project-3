@@ -149,34 +149,34 @@ input[type="date"]:focus {
 }
 
 .contributors {
-    display: flex;               /* Ensure flexbox is used */
-    justify-content: center;     /* Align items in the center */
-    align-items: center;         /* Vertically align the items */
-    gap: 20px;                   /* Space between contributors */
-    flex-wrap: wrap;             /* Allow wrapping if there are too many items */
+    display: flex;               
+    justify-content: center;     
+    align-items: center;         
+    gap: 20px;                   
+    flex-wrap: wrap;             
   }
   
   .contributor {
-    display: flex;               /* Align items inside the contributor container */
-    align-items: center;         /* Vertically center the image and name */
-    gap: 10px;                   /* Space between the image and name */
+    display: flex;               
+    align-items: center;         
+    gap: 10px;                   
   }
   
   .contributor-img {
-    width: 40px;                 /* Set width for headshots */
-    height: 40px;                /* Set height for headshots */
-    border-radius: 50%;          /* Makes the image round */
-    object-fit: cover;           /* Ensure the image fills the circle */
+    width: 40px;                 
+    height: 40px;                
+    border-radius: 50%;          
+    object-fit: cover;           
   }
   
   .contributor a {
-    font-size: 16px;             /* Set font size for contributor name */
-    color: white;                /* Default text color is white */
-    text-decoration: none;       /* Remove underline */
-    transition: color 0.3s ease; /* Smooth transition for color change */
+    font-size: 16px;             
+    color: white;                
+    text-decoration: none;      
+    transition: color 0.3s ease; 
   }
   
   .contributor a:hover {
-    color: deeppink;             /* Change text color to deeppink on hover */
-    text-decoration: underline;  /* Underline the name on hover */
+    color: deeppink;             
+    text-decoration: underline;  
   }
