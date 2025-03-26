@@ -13,7 +13,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 let baseURL = "https://data.cityofnewyork.us/resource/5uac-w243.json?";
 
 // Get the date picker input element
-const datePicker = document.getElementById('dateSelect');  // Assuming this is the ID of the date input
+const datePicker = document.getElementById('dateSelect');  
 
 // Function to fetch data when the date is selected
 function fetchDataWithDate() {
@@ -62,5 +62,4 @@ function fetchDataWithDate() {
 // Event listener for the date picker to fetch data when the user selects a date
 datePicker.addEventListener('change', fetchDataWithDate);
 
-// Optionally, you could fetch data with the initial date on page load, or after a default date is selected
-window.onload = fetchDataWithDate;  // Uncomment if you want to fetch data when the page loads
+window.onload = fetchDataWithDate;  
