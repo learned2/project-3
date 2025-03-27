@@ -69,6 +69,7 @@ function fetchDataWithDate() {
           <strong>Offense Description:</strong> ${response[i].ofns_desc} <br>
           <strong>Level:</strong> ${response[i].law_cat_cd} <br>
           <strong>Date:</strong> ${formattedDate} <br>
+          <strong>Time:</strong> ${response[i].cmplnt_fr_tm} <br>
           <strong>Victim Age:</strong> ${response[i].vic_age_group} <br>
           <strong>Suspect Age:</strong> ${response[i].susp_age_group}
         `;

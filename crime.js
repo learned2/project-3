@@ -28,7 +28,7 @@ let myMap = L.map("map", {
 
     // Construct the API URL with both filters
     const url = `${baseURL}cmplnt_fr_dt=${selectedDate}T00:00:00.000&ofns_desc=${selectedCrimeType}`;
-  
+    
     // Clear existing markers from the map
     markers.clearLayers();
 
