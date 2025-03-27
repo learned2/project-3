@@ -30,6 +30,28 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Styling for the navigation button in the top right */
+#navigate-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+#navigate-container button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#navigate-container button:hover {
+  background-color: #2980b9;
+}
+
 header h1 {
     color: white;
     font-size: 2.5em;
@@ -182,11 +204,11 @@ input[type="date"]:focus {
   }
 
 .info.legend {
-  background-color: white;  /* White background */
-  border-radius: 10px;      /* Rounded corners */
-  padding: 10px;            /* Padding around the content */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
-  font-size: 14px;          /* Slightly smaller font size */
+  background-color: white;  
+  border-radius: 10px;      
+  padding: 10px;            
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  font-size: 14px;          
 }
 
 .info.legend i {
@@ -194,7 +216,7 @@ input[type="date"]:focus {
   height: 20px;
   display: inline-block;
   margin-left: 5px;
-  border-radius: 50%;  /* Make the legend color boxes circular */
+  border-radius: 50%; 
 }
 
 .info.legend strong {

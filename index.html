@@ -50,6 +50,18 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="style.css">
 
+    <div id="navigate-container">
+      <button id="goToDateCrimeBtn">Go to Date Crime Map</button>
+    </div>
+
+    <script>
+      // Button click event to navigate to the Date Crime Map page
+      const goToDateCrimeBtn = document.getElementById('goToDateCrimeBtn');
+      goToDateCrimeBtn.addEventListener('click', function() {
+        window.location.href = "dateCrime.html"; // Redirects to the Date Crime Map page
+      });
+    </script>
+
   </head>
   <body>
 
