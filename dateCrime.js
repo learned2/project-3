@@ -15,6 +15,10 @@ let baseURL = "https://data.cityofnewyork.us/resource/5uac-w243.json?";
 // Get the date picker input element
 const datePicker = document.getElementById('dateSelect');  
 
+// Declare the legend and marker group globally
+let legend;
+let markersGroup = L.layerGroup().addTo(myMap);  // Group to store all markers
+
 // Function to fetch data when the date is selected
 function fetchDataWithDate() {
   // Get the selected date from the date picker
@@ -23,21 +27,37 @@ function fetchDataWithDate() {
   // Construct the API URL with the selected date
   const url = `${baseURL}cmplnt_fr_dt=${selectedDate}T00:00:00.000`;
 
+  // Clear the existing markers before fetching new data
+  markersGroup.clearLayers();
+
   // Fetch data using d3
   d3.json(url).then(function(response) {
-    // Create a new marker cluster group
-    let markers = L.markerClusterGroup();
-
     // Loop through the data
     for (let i = 0; i < response.length; i++) {
       // Get the latitude and longitude from the dataset
       let latitude = response[i].latitude;
       let longitude = response[i].longitude;
+      let lawCategory = response[i].law_cat_cd; // Get the law category
 
       // Check if we have valid latitude and longitude
       if (latitude && longitude) {
-        // Create a marker for each incident
-        let marker = L.marker([latitude, longitude]);
+        // Determine the color based on law category
+        let color;
+        if (lawCategory === "FELONY") {
+          color = "red";
+        } else if (lawCategory === "MISDEMEANOR") {
+          color = "yellow";
+        } else if (lawCategory === "VIOLATION") {
+          color = "grey";
+        }
+
+        // Create a circle marker with the appropriate color
+        let marker = L.circleMarker([latitude, longitude], {
+          radius: 5,       // Size of the circle
+          color: color,    // Set color based on crime category
+          weight: 2,       // Border weight
+          fillOpacity: 0.5 // Opacity of the circle
+        });
 
         // Add a popup with the details of the incident
         let popupContent = `
@@ -49,17 +69,34 @@ function fetchDataWithDate() {
 
         marker.bindPopup(popupContent);
 
-        // Add the marker to the cluster group
-        markers.addLayer(marker);
+        // Add the marker to the markers group
+        markersGroup.addLayer(marker);
       }
     }
-
-    // Add the marker cluster group to the map
-    myMap.addLayer(markers);
   });
+
+  // Create the legend only if it doesn't already exist
+  if (!legend) {
+    legend = L.control({ position: "topright" });
+
+    // Add the content to the legend
+    legend.onAdd = function () {
+      let div = L.DomUtil.create("div", "info legend");
+      div.innerHTML = `
+        <strong>Crime Category</strong><br>
+        <i style="background: red;"></i> FELONY <br>
+        <i style="background: yellow;"></i> MISDEMEANOR <br>
+        <i style="background: grey;"></i> VIOLATION
+      `;
+      return div;
+    };
+
+    // Add the legend to the map
+    legend.addTo(myMap);
+  }
 }
 
 // Event listener for the date picker to fetch data when the user selects a date
 datePicker.addEventListener('change', fetchDataWithDate);
 
-window.onload = fetchDataWithDate;  
+window.onload = fetchDataWithDate;

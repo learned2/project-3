@@ -106,10 +106,10 @@ input[type="date"]:focus {
   }
 
 .leaflet-popup {
-    width: 400px; 
+    width: 350px; 
     height: auto; 
     font-size: 18px; 
-    padding: 20px; 
+    padding: 10px; 
     border-radius: 10px; 
   }
 
@@ -180,3 +180,24 @@ input[type="date"]:focus {
     color: deeppink;             
     text-decoration: underline;  
   }
+
+.info.legend {
+  background-color: white;  /* White background */
+  border-radius: 10px;      /* Rounded corners */
+  padding: 10px;            /* Padding around the content */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+  font-size: 14px;          /* Slightly smaller font size */
+}
+
+.info.legend i {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-left: 5px;
+  border-radius: 50%;  /* Make the legend color boxes circular */
+}
+
+.info.legend strong {
+  display: block;
+  margin-bottom: 5px;
+}
