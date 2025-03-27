@@ -30,6 +30,9 @@ function fetchDataWithDate() {
   // Clear the existing markers before fetching new data
   markersGroup.clearLayers();
 
+  function formatDate(dateString) {
+    return dateString.split('T')[0];}
+
   // Fetch data using d3
   d3.json(url).then(function(response) {
     // Loop through the data
@@ -53,16 +56,19 @@ function fetchDataWithDate() {
 
         // Create a circle marker with the appropriate color
         let marker = L.circleMarker([latitude, longitude], {
-          radius: 5,       // Size of the circle
+          radius: 8,       // Size of the circle
           color: color,    // Set color based on crime category
           weight: 2,       // Border weight
           fillOpacity: 0.5 // Opacity of the circle
         });
 
+        const formattedDate = formatDate(response[i].cmplnt_fr_dt);
+
         // Add a popup with the details of the incident
         let popupContent = `
           <strong>Offense Description:</strong> ${response[i].ofns_desc} <br>
-          <strong>Date:</strong> ${response[i].cmplnt_fr_dt} <br>
+          <strong>Level:</strong> ${response[i].law_cat_cd} <br>
+          <strong>Date:</strong> ${formattedDate} <br>
           <strong>Victim Age:</strong> ${response[i].vic_age_group} <br>
           <strong>Suspect Age:</strong> ${response[i].susp_age_group}
         `;
