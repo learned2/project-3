@@ -30,7 +30,39 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Styling for the navigation button in the top right */
+.contributors {
+  display: flex;               
+  justify-content: center;     
+  align-items: center;         
+  gap: 20px;                   
+  flex-wrap: wrap;             
+}
+
+.contributor {
+  display: flex;               
+  align-items: center;         
+  gap: 10px;                   
+}
+
+.contributor-img {
+  width: 40px;                 
+  height: 40px;                
+  border-radius: 50%;          
+  object-fit: cover;           
+}
+
+.contributor a {
+  font-size: 16px;             
+  color: white;                
+  text-decoration: none;      
+  transition: color 0.3s ease; 
+}
+
+.contributor a:hover {
+  color: deeppink;             
+  text-decoration: underline;  
+}
+
 #navigate-container {
   position: absolute;
   top: 10px;
@@ -169,39 +201,6 @@ input[type="date"]:focus {
 .leaflet-popup-close-button span {
     color: white;
 }
-
-.contributors {
-    display: flex;               
-    justify-content: center;     
-    align-items: center;         
-    gap: 20px;                   
-    flex-wrap: wrap;             
-  }
-  
-  .contributor {
-    display: flex;               
-    align-items: center;         
-    gap: 10px;                   
-  }
-  
-  .contributor-img {
-    width: 40px;                 
-    height: 40px;                
-    border-radius: 50%;          
-    object-fit: cover;           
-  }
-  
-  .contributor a {
-    font-size: 16px;             
-    color: white;                
-    text-decoration: none;      
-    transition: color 0.3s ease; 
-  }
-  
-  .contributor a:hover {
-    color: deeppink;             
-    text-decoration: underline;  
-  }
 
 .info.legend {
   background-color: white;  
