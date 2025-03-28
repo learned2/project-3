@@ -70,6 +70,3 @@ let myMap = L.map("map", {
   datePicker.addEventListener('change', fetchDataWithFilters);
   crimeTypeSelect.addEventListener('change', fetchDataWithFilters);
   
-  
-  window.onload = fetchDataWithFilters; 
-  

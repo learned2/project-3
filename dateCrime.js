@@ -56,10 +56,10 @@ function fetchDataWithDate() {
 
         // Create a circle marker with the appropriate color
         let marker = L.circleMarker([latitude, longitude], {
-          radius: 8,       // Size of the circle
-          color: color,    // Set color based on crime category
-          weight: 2,       // Border weight
-          fillOpacity: 0.5 // Opacity of the circle
+          radius: 8,       
+          color: color,    
+          weight: 2,      
+          fillOpacity: 0.5 
         });
 
         const formattedDate = formatDate(response[i].cmplnt_fr_dt);
@@ -105,5 +105,3 @@ function fetchDataWithDate() {
 
 // Event listener for the date picker to fetch data when the user selects a date
 datePicker.addEventListener('change', fetchDataWithDate);
-
-window.onload = fetchDataWithDate;
