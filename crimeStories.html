@@ -55,7 +55,8 @@
     <div id="navigate-container">
         <button id="goToIndexBtn">Index Map</button>
         <button id="goToDateCrimeBtn">All Crimes Map</button>
-        <button id="goToCrimeStoriesBtn">🔍Crime Stories🔍</button>
+        <button id="goToChartsBtn">📊Charts</button>
+        <button id="goToCrimeStoriesBtn">🔍Crime Stories</button>
       </div>
   
       <script>
@@ -71,11 +72,18 @@
           window.location.href = "dateCrime.html"; // Redirects to the Date Crime Map page
         });
       
+        // Button click event to navigate to the Charts page
+        const goToChartsBtn = document.getElementById('goToChartsBtn');
+        goToChartsBtn.addEventListener('click', function() {
+          window.location.href = "charts.html"; // Redirects to the charts
+        });
+        
         // Button click event to navigate to the Crime Stories page
         const goToCrimeStoriesBtn = document.getElementById('goToCrimeStoriesBtn');
         goToCrimeStoriesBtn.addEventListener('click', function() {
           window.location.href = "crimeStories.html"; // Redirects to the Crime Stories page
         });
+  
       </script>
 
   </head>
