@@ -51,11 +51,18 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <div id="navigate-container">
-      <button id="goToDateCrimeBtn">Go to All Crimes Map</button>
+      <button id="goToIndexBtn">Index Map</button>
+      <button id="goToDateCrimeBtn">All Crimes Map</button>
       <button id="goToCrimeStoriesBtn">🔍Crime Stories🔍</button>
     </div>
 
     <script>
+      // Button click event to navigate to the Date Crime Map page
+      const goToIndexBtn = document.getElementById('goToIndexBtn');
+      goToIndexBtn.addEventListener('click', function() {
+        window.location.href = "index.html"; 
+      });
+
       // Button click event to navigate to the Date Crime Map page
       const goToDateCrimeBtn = document.getElementById('goToDateCrimeBtn');
       goToDateCrimeBtn.addEventListener('click', function() {
