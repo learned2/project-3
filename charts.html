@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>NYC Crime Map 2024</title>
+    <header>
+      <h1>Crime Charts 2024</h1> 
+      <h4><div class="contributors">
+        By: <div class="contributor">
+          <img src="headshots/angely.png" alt="Angely R" class="contributor-img">
+          <a href="https://github.com/angramirez126" target="_blank">Angely R</a>
+        </div>
+        <div class="contributor">
+          <img src="headshots/everest.png" alt="Everest L" class="contributor-img">
+          <a href="https://github.com/everestgourmand" target="_blank">Everest L</a>
+        </div>
+        <div class="contributor">
+          <img src="headshots/jason.png" alt="Jason M" class="contributor-img">
+          <a href="https://github.com/JasonTMarino" target="_blank">Jason M</a>
+        </div>
+        <div class="contributor">
+          <img src="headshots/stan.png" alt="Stan U" class="contributor-img">
+          <a href="https://github.com/learned2" target="_blank">Stan U</a>
+        </div>
+        <div class="contributor">
+          <img src="headshots/justin.jpg" alt="Justin Z" class="contributor-img">
+          <a href="https://github.com/juszisholtz" target="_blank">Justin Z</a>
+        </div>
+      </div></h4>
+    </header>
+    
+    <!-- custom  -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="charts.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <div id="navigate-container">
+      <button id="goToIndexBtn">Index Map</button>
+      <button id="goToDateCrimeBtn">All Crimes Map</button>
+      <button id="goToCrimeStoriesBtn">🔍Crime Stories🔍</button>
+    </div>
+
+    <script>
+      // Button click event to navigate to the Date Crime Map page
+      const goToIndexBtn = document.getElementById('goToIndexBtn');
+      goToIndexBtn.addEventListener('click', function() {
+        window.location.href = "index.html"; 
+      });
+
+      // Button click event to navigate to the Date Crime Map page
+      const goToDateCrimeBtn = document.getElementById('goToDateCrimeBtn');
+      goToDateCrimeBtn.addEventListener('click', function() {
+        window.location.href = "dateCrime.html"; // Redirects to the Date Crime Map page
+      });
+    
+      // Button click event to navigate to the Crime Stories page
+      const goToCrimeStoriesBtn = document.getElementById('goToCrimeStoriesBtn');
+      goToCrimeStoriesBtn.addEventListener('click', function() {
+        window.location.href = "crimeStories.html"; // Redirects to the Crime Stories page
+      });
+    </script>
+
+  </head>
+
+<body>
+
+  <!-- Dropdown Menu for Selecting Crime Type -->
+  <div id="dropdown-container">
+    <br>
+    <label for="crimeTypeDropdown">Select Crime Type:</label>
+    <select id="crimeTypeDropdown">
+      <option value="Murder">Murder</option>
+      <option value="Arson">Arson</option>
+      <option value="Larceny">Larceny</option>
+    </select>
+  </div>
+
+  <!-- Charts Container -->
+  <div class="dashboard">
+    <div class="charts-container">
+      <div class="chart-box">
+        <canvas id="barChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Data sourced from NYC Open Data. Powered by Leaflet.js, Chart.js and D3.js</p>
+  </footer>
+
+</body>
+</html>
+
